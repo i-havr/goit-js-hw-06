@@ -6,14 +6,15 @@ console.log(categoriesQty);
 
 //===============================
 
-const categoriesTitles = document.querySelectorAll('.item h2');
-for (const title of categoriesTitles) {
+const categoriesTitles = document.querySelectorAll('h2');
+const listsOfCategories = document.querySelectorAll('.item ul');
+
+categoriesTitles.forEach(title => {
   console.log(`Category: ${title.textContent}`);
 
-  const listsOfCategories = document.querySelectorAll('.item ul');
-  for (const list of listsOfCategories) {
-    if (title.parentNode === list.parentNode) {
+  listsOfCategories.forEach(list => {
+    if (list.parentNode === title.parentNode) {
       console.log(`Elements: ${list.children.length}`);
     }
-  }
-}
+  });
+});

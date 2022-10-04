@@ -12,3 +12,34 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+//1st Way =========================================================================
+
+// const imagesListRef = document.querySelector('.gallery');
+
+// const makeImageCard = ({ url, alt }) => {
+//   const itemRef = document.createElement('li');
+//   const imageRef = document.createElement('img');
+//   imageRef.src = url;
+//   imageRef.alt = alt;
+//   itemRef.appendChild(imageRef);
+//   return itemRef;
+// };
+
+// const items = images.map(makeImageCard);
+// imagesListRef.append(...items);
+
+//2nd Way =========================================================================
+
+const imagesListRef = document.querySelector('.gallery');
+
+const makeImageMarkup = ({ url, alt }) => {
+  return `<li>
+
+  <img src="${url}" alt="${alt}">
+  
+  </li>`;
+};
+
+const makeCollectionOfImagesMarkup = images.map(makeImageMarkup).join('');
+imagesListRef.insertAdjacentHTML('afterbegin', makeCollectionOfImagesMarkup);
